@@ -1,20 +1,6 @@
-
-import { useState } from 'react';
 import Navbar from '../components/Navbar';
 
 const Contact = () => {
-  const [formState, setFormState] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formState);
-  };
-
   return (
     <div className="min-h-screen bg-cyber-black text-crt-white">
       <Navbar />
@@ -24,71 +10,40 @@ const Contact = () => {
             CONNECT.EXE
           </h1>
 
-          <form onSubmit={handleSubmit} className="space-y-8">
-            <div className="space-y-4">
-              <div>
-                <label htmlFor="name" className="block font-pixel text-neon-green text-sm mb-2">
-                  IDENTITY
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  value={formState.name}
-                  onChange={(e) => setFormState(prev => ({ ...prev, name: e.target.value }))}
-                  className="w-full bg-cyber-dark border border-neon-blue/30 text-crt-white p-3 focus:border-neon-blue focus:outline-none transition-colors duration-300"
-                  required
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block font-pixel text-neon-green text-sm mb-2">
-                  NEURAL_LINK
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  value={formState.email}
-                  onChange={(e) => setFormState(prev => ({ ...prev, email: e.target.value }))}
-                  className="w-full bg-cyber-dark border border-neon-blue/30 text-crt-white p-3 focus:border-neon-blue focus:outline-none transition-colors duration-300"
-                  required
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block font-pixel text-neon-green text-sm mb-2">
-                  TRANSMISSION
-                </label>
-                <textarea
-                  id="message"
-                  value={formState.message}
-                  onChange={(e) => setFormState(prev => ({ ...prev, message: e.target.value }))}
-                  rows={5}
-                  className="w-full bg-cyber-dark border border-neon-blue/30 text-crt-white p-3 focus:border-neon-blue focus:outline-none transition-colors duration-300"
-                  required
-                />
-              </div>
+          {/* Display Email and Contact Info */}
+          <div className="space-y-8 text-center">
+            <div>
+              <h2 className="font-pixel text-neon-green text-xl mb-4">
+                NEURAL_LINK (EMAIL)
+              </h2>
+              <a
+                href="mailto:your.email@example.com"
+                className="text-crt-white hover:text-neon-blue transition-colors duration-300"
+              >
+                your.email@example.com
+              </a>
             </div>
 
-            <button
-              type="submit"
-              className="w-full bg-neon-blue/20 border border-neon-blue text-neon-blue font-pixel py-4 hover:bg-neon-blue hover:text-cyber-black transition-all duration-300"
-            >
-              TRANSMIT MESSAGE
-            </button>
-          </form>
-
-          <div className="mt-16 text-center space-y-6">
-            <h2 className="font-pixel text-neon-pink text-xl">OTHER FREQUENCIES</h2>
-            <div className="flex justify-center gap-8">
-              {['TWITTER', 'SOUNDCLOUD', 'INSTAGRAM'].map((platform) => (
-                <a
-                  key={platform}
-                  href="#"
-                  className="text-crt-white hover:text-neon-green transition-colors duration-300"
-                >
-                  {platform}
-                </a>
-              ))}
+            {/* Social Media Links */}
+            <div className="mt-16 space-y-6">
+              <h2 className="font-pixel text-neon-pink text-xl">
+                OTHER FREQUENCIES
+              </h2>
+              <div className="flex justify-center gap-8">
+                {[
+                  { name: 'TWITTER', link: '#' },
+                  { name: 'SOUNDCLOUD', link: '#' },
+                  { name: 'INSTAGRAM', link: '#' },
+                ].map((platform) => (
+                  <a
+                    key={platform.name}
+                    href={platform.link}
+                    className="text-crt-white hover:text-neon-green transition-colors duration-300"
+                  >
+                    {platform.name}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </div>
