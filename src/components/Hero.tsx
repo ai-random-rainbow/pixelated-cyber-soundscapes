@@ -9,12 +9,12 @@ const Hero = () => {
       <div className="relative z-10 text-center px-4">
         <div className="inline-block">
           <span className="text-xs font-pixel text-neon-green mb-4 block animate-pulse">
-            SYSTEM ONLINE
+            WELCOME TO THE NOISE
           </span>
           <h1 className="text-4xl md:text-6xl font-pixel text-crt-white mb-8 animate-float">
-            <span className="block text-neon-blue">CYBER</span>
-            <span className="block text-neon-pink">SYNTH</span>
-            <span className="block text-neon-green">SOUNDS</span>
+            <span className="block text-neon-blue">NADI</span>
+            <span className="block text-neon-pink">NICOCO</span>
+            <span className="block text-neon-green">EXPERIMENTAL MUSIC</span>
           </h1>
           <p className="text-crt-white/80 font-sans max-w-xl mx-auto mb-12 leading-relaxed">
             Digital sound architecture from the void. Welcome to the synthesis.
