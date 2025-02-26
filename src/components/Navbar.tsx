@@ -1,26 +1,38 @@
 
 import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+
+  const navItems = [
+    { name: 'TRACKS', path: '/tracks' },
+    { name: 'ABOUT', path: '/about' },
+    { name: 'CONTACT', path: '/contact' },
+  ];
 
   return (
     <nav className="fixed w-full top-0 z-50 bg-cyber-black/80 backdrop-blur-sm border-b border-neon-blue/20">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          <a href="/" className="text-neon-blue font-pixel text-sm hover:text-neon-pink transition-colors duration-300">
+          <Link to="/" className="text-neon-blue font-pixel text-sm hover:text-neon-pink transition-colors duration-300">
             CYBERSYNTH
-          </a>
+          </Link>
           
           <div className="hidden md:flex space-x-8">
-            {['TRACKS', 'ABOUT', 'CONTACT'].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="text-crt-white hover:text-neon-green text-sm font-pixel tracking-wider transition-colors duration-300"
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                to={item.path}
+                className={`text-sm font-pixel tracking-wider transition-colors duration-300 ${
+                  location.pathname === item.path
+                    ? 'text-neon-green'
+                    : 'text-crt-white hover:text-neon-green'
+                }`}
               >
-                {item}
-              </a>
+                {item.name}
+              </Link>
             ))}
           </div>
 
@@ -37,15 +49,19 @@ const Navbar = () => {
         {/* Mobile menu */}
         <div className={`${isOpen ? 'block' : 'hidden'} md:hidden`}>
           <div className="px-2 pt-2 pb-3 space-y-1">
-            {['TRACKS', 'ABOUT', 'CONTACT'].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="block px-3 py-2 text-crt-white hover:text-neon-green font-pixel text-sm transition-colors duration-300"
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                to={item.path}
+                className={`block px-3 py-2 font-pixel text-sm transition-colors duration-300 ${
+                  location.pathname === item.path
+                    ? 'text-neon-green'
+                    : 'text-crt-white hover:text-neon-green'
+                }`}
                 onClick={() => setIsOpen(false)}
               >
-                {item}
-              </a>
+                {item.name}
+              </Link>
             ))}
           </div>
         </div>
