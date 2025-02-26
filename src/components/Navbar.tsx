@@ -17,7 +17,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="text-neon-blue font-pixel text-sm hover:text-neon-pink transition-colors duration-300">
-            CYBERSYNTH
+            NADI NICOCO
           </Link>
           
           <div className="hidden md:flex space-x-8">
